@@ -5,7 +5,6 @@ metadata:
     app: hello-kubernetes
     version: "0.1"
   name: hello-kubernetes
-  namespace: dev
 spec:
   replicas: 1
   revisionHistoryLimit: 2
