@@ -17,8 +17,7 @@ function App() {
         </p>
         <EnvVar name='REACT_APP_HOSTNAME'/>
         <EnvVar name='REACT_APP_VERSION'/>
-        <EnvVar name='REACT_APP_KUBERNETES_SERVICE_HOST'/>
-        <EnvVar name='REACT_APP_KUBERNETES_NAMESPACE'/>
+        <EnvVar name='REACT_APP_HELLO_KUBERNETES_SERVICE_HOST'/>
 
       </header>
     </div>
