@@ -16,7 +16,7 @@ function App() {
           Environment Variables
         </p>
         <EnvVar name='REACT_APP_HOSTNAME'/>
-        <EnvVar name='REACT_APP_VERSION'/>
+        <EnvVar name='REACT_APP_TEST_VAR'/>
         <EnvVar name='REACT_APP_HELLO_KUBERNETES_SERVICE_HOST'/>
 
       </header>

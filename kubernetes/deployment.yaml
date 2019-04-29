@@ -23,13 +23,11 @@ spec:
     spec:
       containers:
       - image: hazim/hello-kubernetes
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         name: hello-kubernetes
         env:
-          - name: VERSION
-            valueFrom:
-              fieldRef:
-                fieldPath: metadata.labels['version']
+          - name: TEST_VAR
+            value: "v1"
         ports:
         - containerPort: 8000
           name: http
