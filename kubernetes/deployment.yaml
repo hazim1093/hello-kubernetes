@@ -23,7 +23,7 @@ spec:
         app: hello-kubernetes
     spec:
       containers:
-      - image: hazim1093/hello-kubernetes:latest
+      - image: hazim/hello-kubernetes
         imagePullPolicy: IfNotPresent
         name: hello-kubernetes
         env:
