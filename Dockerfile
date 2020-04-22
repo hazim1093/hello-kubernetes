@@ -1,7 +1,7 @@
 FROM node:12
 
 COPY run.sh ./
-COPY package.json yarn.lock ./app/
+COPY package.json yarn.lock .env ./app/
 COPY public ./app/public
 COPY src ./app/src
 
