@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   labels:
     app: hello-kubernetes
-    version: "0.1"
+    version: "0.2"
   name: hello-kubernetes
 spec:
   replicas: 1
@@ -22,21 +22,21 @@ spec:
         app: hello-kubernetes
     spec:
       containers:
-      - image: hazim/hello-kubernetes
+      - image: hazim/hello-kubernetes:go
         imagePullPolicy: Always
         name: hello-kubernetes
         env:
           - name: TEST_VAR
             value: "v1"
         ports:
-        - containerPort: 8000
+        - containerPort: 8080
           name: http
           protocol: TCP
         livenessProbe:
           failureThreshold: 30
           httpGet:
             path: /
-            port: 3000
+            port: 8080
             scheme: HTTP
           initialDelaySeconds: 20
           periodSeconds: 10
@@ -46,7 +46,7 @@ spec:
           failureThreshold: 3
           httpGet:
             path: /
-            port: 3000
+            port: 8080
             scheme: HTTP
           initialDelaySeconds: 20
           periodSeconds: 10
