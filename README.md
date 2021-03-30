@@ -13,5 +13,4 @@ make run
 ```
 
 ## TODO
-- [ ] Add ingress.yaml.
 - [ ] Show all available environment variables implicitly.
