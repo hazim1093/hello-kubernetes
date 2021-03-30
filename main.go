@@ -4,9 +4,15 @@ import (
 	"html/template"
 	"log"
 	"net/http"
+	"os"
 )
 
 var tmpl *template.Template
+
+type TemplateData struct {
+	Hostname   string
+	TestEnvVar string
+}
 
 func main() {
 	tmpl = template.Must(template.ParseFiles("public/index.html"))
@@ -20,5 +26,11 @@ func main() {
 }
 
 func rootHandler(w http.ResponseWriter, r *http.Request) {
-	tmpl.Execute(w, nil)
+
+	data := TemplateData{
+		Hostname: os.Getenv("HOSTNAME"),
+		TestEnvVar: os.Getenv("TEST_VAR"),
+	}
+
+	tmpl.Execute(w, data)
 }
