@@ -1,12 +1,13 @@
-FROM node:12
+FROM golang:1.14-alpine as builder
+COPY . /app
+WORKDIR /app
+RUN go build -o out/hello-kubernetes
 
-COPY run.sh ./
-COPY package.json yarn.lock .env ./app/
-COPY public ./app/public
-COPY src ./app/src
+FROM alpine:3.12
+COPY public /app/public
+COPY static /app/static
+COPY --from=builder /app/out/hello-kubernetes /app/hello-kubernetes
 
-RUN cd app && yarn install
-
-EXPOSE 3000
-
-CMD ["sh", "run.sh"]
+WORKDIR /app
+EXPOSE 8080
+CMD ["./hello-kubernetes"]
