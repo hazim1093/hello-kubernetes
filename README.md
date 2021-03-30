@@ -9,7 +9,7 @@ kubectl apply -f ./kubernetes/
 
 ## How to run application
 ```
-go run main.go
+make run
 ```
 
 ## TODO
